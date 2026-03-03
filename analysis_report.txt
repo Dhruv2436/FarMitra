@@ -1,0 +1,14 @@
+Analyzing farmitra...                                           
+
+   info - 'desiredAccuracy' is deprecated and shouldn't be used. use settings parameter with AndroidSettings, AppleSettings, WebSettings, or LocationSettings - lib\farmer\farmer_home.dart:54:9 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\farmer\widget\feature_grid.dart:52:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\farmer\widget\header_section.dart:87:35 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\farmer\widget\weather_card.dart:41:33 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\farmer\widget\weather_card.dart:131:36 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\farmer\widget\weather_card.dart:142:52 - deprecated_member_use
+  error - Target of URI doesn't exist: '../services/weather_service.dart' - lib\features\weather\screens\weather_home_screen.dart:3:8 - uri_does_not_exist
+  error - The method 'WeatherService' isn't defined for the type '_WeatherHomeScreenState' - lib\features\weather\screens\weather_home_screen.dart:27:24 - undefined_method
+warning - The value of the local variable 'permission' isn't used - lib\features\weather\services\location_service.dart:10:24 - unused_local_variable
+   info - 'desiredAccuracy' is deprecated and shouldn't be used. use settings parameter with AndroidSettings, AppleSettings, WebSettings, or LocationSettings - lib\features\weather\services\location_service.dart:13:9 - deprecated_member_use
+  error - The name 'MyApp' isn't a class - test\widget_test.dart:16:35 - creation_with_non_type
+
