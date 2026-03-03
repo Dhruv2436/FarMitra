@@ -1,0 +1,7 @@
+{
+  "@@locale": "en",
+  "chatbot_welcome": "🌾 Welcome to Farmitra AI!\nHow can I assist you with soil, crops, fertilizers, or irrigation today?",
+  "chatbot_placeholder": "Ask about farming...",
+  "send_button": "Send",
+  "delete_history": "Delete Chat History"
+}

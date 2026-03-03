@@ -7,6 +7,9 @@ import 'widget/weather_card.dart';
 import 'widget/bottom_nav.dart';
 import '../weather_details_page.dart';
 import '../chatbot_overlay.dart';
+import 'package:farmitra/crop_analysis/screens/home_screen.dart';
+
+
 class FarmerHome extends StatefulWidget {
   const FarmerHome({super.key});
 

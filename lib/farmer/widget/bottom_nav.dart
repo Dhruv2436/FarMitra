@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:farmitra/crop_analysis/screens/home_screen.dart'; // Crop Analysis Home
+import 'package:farmitra/soil_analysis/screens/soil_home_screen.dart'; // Soil Analysis Home
 
 class BottomNav extends StatelessWidget {
   const BottomNav({super.key});
@@ -6,9 +8,9 @@ class BottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 90, // 🔥 Increased height
+      height: 90, // Increased height
       child: Stack(
-        clipBehavior: Clip.none, // 🔥 Allow overflow
+        clipBehavior: Clip.none, // Allow overflow
         alignment: Alignment.center,
         children: [
           Positioned(
@@ -28,41 +30,94 @@ class BottomNav extends StatelessWidget {
                 ],
               ),
               child: Row(
-                mainAxisAlignment:
-                    MainAxisAlignment.spaceAround,
-                children: const [
-                  _NavItem(icon: Icons.home, label: "Home"),
-                  _NavItem(icon: Icons.grass, label: "Soil"),
-                  SizedBox(width: 70), // space for center button
-                  _NavItem(icon: Icons.store, label: "Market"),
-                  _NavItem(icon: Icons.person, label: "Profile"),
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  // Home Tab
+                  _NavItem(
+                    icon: Icons.home,
+                    label: "Home",
+                    onTap: () {
+                      // Navigate to crop_analysis home (or main home)
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => HomeScreen(),
+                        ),
+                      );
+                    },
+                  ),
+
+                  // Soil Tab
+                  _NavItem(
+                    icon: Icons.grass,
+                    label: "Soil",
+                    onTap: () {
+                      // Navigate to SoilHomeScreen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => SoilHomeScreen(),
+                        ),
+                      );
+                    },
+                  ),
+
+                  const SizedBox(width: 70), // space for center button
+
+                  // Market Tab
+                  _NavItem(
+                    icon: Icons.store,
+                    label: "Market",
+                    onTap: () {
+                      // TODO: Implement Market screen navigation
+                    },
+                  ),
+
+                  // Profile Tab
+                  _NavItem(
+                    icon: Icons.person,
+                    label: "Profile",
+                    onTap: () {
+                      // TODO: Implement Profile screen navigation
+                    },
+                  ),
                 ],
               ),
             ),
           ),
 
-          // ✅ PERFECT CENTER BUTTON POSITION
+          // Center Button for Crop Doctor
           Positioned(
-            top: -25, // 🔥 Pushes button up properly
+            top: -25,
             child: Column(
               children: [
-                Container(
-                  height: 70,
-                  width: 70,
-                  decoration: BoxDecoration(
-                    color: Colors.green,
-                    shape: BoxShape.circle,
-                    boxShadow: const [
-                      BoxShadow(
-                        blurRadius: 12,
-                        color: Colors.black26,
-                      )
-                    ],
-                  ),
-                  child: const Icon(
-                    Icons.camera_alt,
-                    size: 32,
-                    color: Colors.white,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => HomeScreen(), // Crop Analysis screen
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 70,
+                    width: 70,
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      shape: BoxShape.circle,
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 12,
+                          color: Colors.black26,
+                        )
+                      ],
+                    ),
+                    child: const Icon(
+                      Icons.camera_alt,
+                      size: 32,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -82,28 +137,32 @@ class BottomNav extends StatelessWidget {
   }
 }
 
+// Updated _NavItem to include optional onTap callback
 class _NavItem extends StatelessWidget {
   final IconData icon;
   final String label;
+  final VoidCallback? onTap;
 
   const _NavItem({
     required this.icon,
     required this.label,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment:
-          MainAxisAlignment.center,
-      children: [
-        Icon(icon, color: Colors.grey),
-        Text(
-          label,
-          style: const TextStyle(
-              fontSize: 12, color: Colors.grey),
-        ),
-      ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: Colors.grey),
+          Text(
+            label,
+            style: const TextStyle(fontSize: 12, color: Colors.grey),
+          ),
+        ],
+      ),
     );
   }
 }
